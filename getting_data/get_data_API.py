@@ -28,7 +28,7 @@ api = vk.API(session)
 # получение постов для каждой группы
 def get_n_posts(group_ids, n):
     '''
-            Если надо выкачать больше от 100 до наверное 1000 постов со стен групп ВКонтакте.
+            Если надо выкачать от 100 постов со стен групп ВКонтакте.
 
             Args:
             group_ids: list - список с id нужных групп (без "-" в начале)
@@ -59,7 +59,7 @@ def get_n_posts(group_ids, n):
             current_posts = api.wall.get(owner_id='-' + group_id, count=100, offset=off)
             group_posts.extend(current_posts[1:])
             off += 100
-            # потупить немного, чтобы не привысить лимит запросов в секунду
+            # подождать немного, чтобы не привысить лимит запросов в секунду
             time.sleep(0.4)
 
         # all_posts.append(group_posts)
