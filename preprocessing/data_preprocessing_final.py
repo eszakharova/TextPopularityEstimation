@@ -25,8 +25,12 @@ def clean(text):
 
 
 # загружаем регулярки с нецензурными выражениями
-f = open('obscene_regs.txt', 'r')
-obscene_regs = [re.compile(i.strip(' \n\'')) for i in f.readlines()]
+def browse_obscene():
+    f = open('../preprocessing/obscene_regs.txt', 'r')
+    obs_regs = [re.compile(i.strip(' \n\'')) for i in f.readlines()]
+    return obs_regs
+
+obscene_regs = browse_obscene()
 
 # загружаем RuSentiLex
 
