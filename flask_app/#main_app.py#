@@ -124,10 +124,7 @@ def make_features(link):
                     neg_cnt += 1
                 else:
                     pos_cnt += 1
-        try:
-            attached = ' '.join([i['type'] for i in post['attachments']])
-        except:
-            attached = 'None'
+        attached = ' '.join([i['type'] for i in post['attachments']])
         ph = len(re.findall('photo', attached))
         link = len(re.findall('link', attached))
         au = len(re.findall('audio', attached))
@@ -176,3 +173,5 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+    
